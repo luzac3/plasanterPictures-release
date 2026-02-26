@@ -1,0 +1,178 @@
+#answer_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+}
+
+#textCanvas {
+    display: block;
+    width: 90vw;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 2 / 1;
+    border: 2px solid #000000;
+    margin-bottom: 16px;
+    cursor: none;
+}
+
+.picture_canvas_overlay {
+    cursor: none;
+}
+
+.canvas-cursor {
+    position: fixed;
+    border: 2px solid #333;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
+.picture-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 12px;
+}
+    .picture-buttons button {
+        flex: 1 1 0;
+        min-width: 80px;
+        max-width: 150px;
+        font-size: 1rem;
+        padding: 8px 0;
+    }
+
+.answer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2%; /* 要素間の隙間を均等に */
+    justify-content: space-between; /* 横並びを均等に配置 */
+    border: 2px solid #000; /* 黒いふち */
+    border-radius: 16px; /* 角を丸く */
+    max-width: 95vw;
+    box-sizing: border-box;
+}
+    .answer > div {
+        width: 48%;
+    }
+    .answer > div:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+.picture_image {
+    max-width: 100%;
+    max-height: 300px;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: 0 auto 8px auto;
+    object-fit: contain;
+}
+
+.receivedImage {
+    width: 95%;
+    aspect-ratio: 1 / 2;
+}
+
+.color-palette {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.color-palette-label {
+    font-weight: bold;
+    white-space: nowrap;
+    font-size: clamp(12px, 2vw, 16px);
+}
+
+.color-palette-colors {
+    display: flex;
+    gap: calc(var(--gap-size) * 0.5);
+    flex-wrap: wrap;
+}
+
+.color-button {
+    width: var(--color-button-size);
+    height: var(--color-button-size);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.color-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.color-button.active {
+    border-color: #333;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.drawing-tools {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--gap-size) * 1.5);
+    margin-bottom: calc(var(--gap-size) * 1.5);
+    padding: calc(var(--gap-size) * 1.5);
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.tools-section {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-size);
+    flex-wrap: wrap;
+}
+
+.tool-buttons {
+    display: flex;
+    gap: calc(var(--gap-size) * 0.5);
+}
+
+.tool-button {
+    width: var(--tool-button-size);
+    height: var(--tool-button-size);
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    padding: 0;
+    flex-shrink: 0;
+}
+    .tool-button:hover {
+        background-color: #f0f0f0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .tool-button.active {
+        border-color: #333;
+        background-color: #333;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    .tool-button .material-symbols-outlined {
+        font-size: calc(var(--tool-button-size) * 0.6);
+    }
